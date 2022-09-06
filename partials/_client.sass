@@ -1,0 +1,248 @@
+@import "../variables"
+
+// -------------------------------------------- CLIENT
+.client
+  *
+    transition: $transition
+  padding: 1rem
+  color: $secondary-dark
+  position: relative
+  margin-bottom: 2rem
+  &__h3
+    font-size: $fs-1_8
+    text-align: center
+    margin-bottom: 1rem
+  &__comment
+    margin-bottom: 3rem
+
+  // .client__img-wrapper
+  &__img-wrapper
+    width: 100%
+    aspect-ratio: 2/1
+    position: relative
+    margin-bottom: 1rem
+    &_comment
+      > :first-child
+        max-height: 100%
+        position: absolute
+        right: 50%
+        bottom: 0
+        z-index: 100
+    &_download
+      width: 50%
+      aspect-ratio: 1/1
+      display: flex
+      align-items: flex-end
+
+  // .client__img-bcg
+  &__img-bcg
+    position: absolute
+    bottom: 0
+    min-height: 75%
+    width: 100%
+    background-color: rgba(74, 153, 211, 0.1)
+    border-radius: 6px
+    z-index: 1
+    margin: 0 auto
+    left: -7rem
+
+  // .client__quote
+  &__quote
+    padding-right: 10%
+    h5
+      margin: 0 15% 0.5rem 0
+      font-size: $fs-1_2
+      text-align: right
+    p
+      opacity: 0.5
+
+  // .client__btn-wrapper
+  &__btn-wrapper
+    text-align: right
+    padding-right: 15%
+  &__comment-btn
+    width: 80px
+    height: 100%
+    line-height: 1
+    aspect-ratio: 2/1
+    background-color: #fff
+    color: $primary-medium
+    border: 0
+    border-radius: 5px
+    cursor: pointer
+    box-shadow: 1px 1px 4px lightgrey
+    &.active-btn
+      color: #fff
+      background-color: $primary-medium
+      box-shadow: unset
+    &:hover
+      background-color: lightgrey
+
+  // .client__download
+  &__download
+    display: flex
+    justify-content: space-around
+    align-items: center
+    flex-wrap: wrap
+    h4
+      font-size: $fs-1_6 * 0.8
+    p
+      opacity: 0.5
+      width: 100%
+      margin-bottom: 1rem
+
+  // .client__btn-container
+  &__btn-container
+    width: 100%
+    justify-content: space-around
+    a
+      display: block
+      width: 35vw
+      max-width: 150px
+    a:hover,
+    a:focus
+      transform: scale(1.1)
+
+  // client decor elements
+  &__dots-decor,
+  &__orange-decor
+    position: absolute
+    right: 0
+  &__dots-decor
+    right: -1rem
+    bottom: -14px
+  &__blue-decor
+    position: absolute
+    bottom: -90px
+    left: 0
+    width: 100px
+    z-index: -100
+  &__orange-decor
+    top: 500px
+    width: 50px
+  &__dots-widescreen
+    display: none
+
+.quote-img
+  width: 20px
+
+// -------------------------------- tablets queries client
+@media (min-width: 576px)
+ .client
+  &__quote
+    h5
+      margin-bottom: 1rem
+  &__download
+    h4
+      font-size: $fs-1_6
+    p
+      margin-bottom: 2rem
+      text-align: center
+  &__dots-decor
+    bottom: 0
+
+// -------------------------------- laptop queries client
+@media (min-width: 768px)
+  .client
+    h3
+      margin: 5rem 0 3rem
+    // .client__comment
+    &__comment
+      display: flex
+      justify-content: center
+      align-items: center
+      gap: 30px
+      margin-bottom: 7rem
+    @media (min-width: 1200px)
+      &__comment
+        justify-content: space-between
+
+    // .client__img-wrapper
+    &__img-wrapper
+      width: 50vw
+      &_comment
+        aspect-ratio: 1.5/1
+        img
+          left: 15vw
+      &_download
+        width: unset
+        grid-area: image
+        align-items: center
+    &__img-bcg
+      width: 55vw
+
+    // .client__quote
+    &__quote
+      align-self: flex-end
+      padding: 0
+      max-width: 33%
+      h5
+        text-align: left
+    &__btn-wrapper
+      display: flex
+      justify-content: flex-end
+
+    @media (min-width: 1200px)
+      &__quote
+        margin-bottom: -2.5rem
+        *:not(:last-child)
+          margin-bottom: 2rem
+      &__btn-wrapper
+        padding-right: 0
+
+    // .client__comment-btn
+    &__comment-btn
+      padding: 0
+      min-width: 80px
+      aspect-ratio: 1/1
+      font-size: 30px
+      line-height: 1
+
+    // .client__download
+    &__download
+      display: grid
+      max-width: 1100px
+      margin: 0 auto 6rem
+      grid-template-areas: "image heading" "image text" "image buttons"
+      grid-template-rows: 1fr max-content 1fr
+      grid-template-columns: 1fr 1fr
+      column-gap: 5px
+      h4
+        grid-area: heading
+        margin: 0
+        text-align: center
+        align-self: end
+        padding-bottom: 0.5rem
+      p
+        grid-area: text
+        width: 100%
+
+    // .client__btn-container
+    &__btn-container
+      grid-area: buttons
+      align-self: start
+      padding-top: 1rem
+      justify-content: center
+      gap: 15px
+
+    // client decor elements
+    &__dots-decor
+      display: none
+
+    @media (min-width: 1200px)
+      &__dots-widescreen
+        display: block
+        margin-right: -1rem
+        margin-top: 70px
+
+    &__blue-decor
+      bottom: -5rem
+      left: -3.4rem
+      width: unset
+    &__orange-decor
+      bottom: -5rem
+      top: unset
+      width: unset
+
+  .quote-img
+    width: 50px

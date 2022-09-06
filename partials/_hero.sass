@@ -1,0 +1,95 @@
+@import "../variables"
+// ---------------------------------------- HERO
+// ------------------------------------ mobile queries hero
+.hero
+  *
+    transition: $transition
+  margin-bottom: 1.5rem
+  padding-bottom: 2rem
+  background: rgba(74,153,211,0.2)
+  background: linear-gradient(to bottom, rgba(74,153,211,0.2) 0%, rgba(255,255,255,0.2) 100%)
+  background: -moz-linear-gradient(top, rgba(74,153,211,0.2) 0%, rgba(255,255,255,0.2) 100%)
+  background: -webkit-linear-gradient(top, rgba(74,153,211,0.2) 0%, rgba(255,255,255,0.2) 100%)
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25)
+  .section-container
+    padding: 1rem
+
+  &__h1
+    max-width: 360px
+    font-size: $fs-2_6 * 0.6
+    line-height: 1.1
+    text-align: center
+    margin: 0 auto 1em
+
+  &__text
+    text-align: center
+    max-width: 500px
+    margin: 0 auto 2em
+    font-size: $fs-1_4 * 0.8
+
+  &__btn-wrapper
+    justify-content: space-around
+
+  &__btn
+    display: block
+    width: 35vw
+    max-width: 150px
+    &:hover,
+    &:focus
+      transform: scale(1.1)
+
+  &__img-wrapper
+    display: none
+
+// --------------------------------------- tablets queries hero
+@media (min-width: 576px)
+  .hero
+    margin-bottom: 2rem
+    padding-bottom: 3rem
+    &__section
+      display: grid
+      grid-template-areas: "content image" "buttons image"
+      column-gap: 15px
+
+    &__content
+      grid-area: content
+      width: 55vw
+      *
+        text-align: left
+        margin-left: 1rem
+
+    &__btn-wrapper
+      grid-area: buttons
+
+    &__img-wrapper
+      display: block
+      grid-area: image
+
+// -------------------------------------- laptop queries hero
+
+@media (min-width: 768px)
+  .hero
+    margin-bottom: 150px
+    .section-container
+      max-width: 950px
+      margin: 0 auto
+
+    &__section
+      margin: 1rem
+
+    &__content,
+    &__btn-wrapper
+      display: flex
+      max-width: 950px * 0.6
+
+    &__content
+      flex-direction: column
+      justify-content: flex-end
+
+    &__btn-wrapper
+      justify-content: flex-start
+      gap: 1rem
+      padding: 0 1rem
+
+    &__btn
+      margin-top: 2rem

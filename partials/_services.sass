@@ -1,0 +1,199 @@
+@import "../variables"
+
+// ------------------------------------------ SERVICES
+.services
+  *
+    transition: $transition
+  padding: 1rem
+  position: relative
+  color: $secondary-dark
+
+  &__h2
+    font-size: $fs-2_2 * 0.7
+    line-height: 1.1
+    text-align: center
+    margin: 0 auto 2em
+    max-width: 360px
+
+  // .services__card
+  &__card
+    border-bottom: 1px solid lavenderblush
+    margin-bottom: 2rem
+    text-align: center
+    &_buy
+      border: none
+    *
+      margin-bottom: 1rem
+
+  // .services__img-wrapper
+  &__img-wrapper
+    z-index: 100
+    img
+      z-index: 100
+      height: 100%
+      margin: 0 auto
+
+  // .services__content
+  &__content
+    color: $secondary-dark
+    h4
+      font-size: $fs-1_4 * 1.2
+    p
+      display: none
+      opacity: 0.5
+    a
+      font-size: $fs-0_8 * 1.2
+      text-decoration: none
+      color: $primary-medium
+
+  // .services__effect
+  &__effect
+    &_blue,
+    &_orange
+      width: 20vw
+      position: absolute
+    &_blue
+      bottom: 20px
+      right: 0
+    &_orange
+      top: 110px
+      margin: -1rem
+    &_dots1,
+    &_dots2,
+    &_dots3
+      display: none
+
+// ---------------------------------- tablets queries services
+@media (min-width: 576px)
+  .services
+    margin-bottom: 1rem
+    &__h2
+      font-size: $fs-2_2 * 0.8
+    &__card
+      display: flex
+      align-items: center
+      gap: 15px
+    &__img-wrapper
+      width: 100%
+
+    // .services__content
+    &__content
+      max-width: 60vw
+      text-align: left
+      p
+        display: block
+      a
+        display: block
+        text-align: right
+        padding-right: 2rem
+
+    // .services__effect
+    &__effect
+      &_blue
+        top: -2rem
+        z-index: -100
+        width: 15vw
+      &_orange
+        top: unset
+        bottom: 0
+        width: 15vw
+
+// ---------------------------------- laptops queries services
+@media (min-width: 768px)
+  .services
+    padding-bottom: 4rem
+    &__container
+      max-width: 950px
+      margin: 0 auto
+      position: relative
+      display: flex
+      justify-content: space-between
+    &__h2
+      font-size: $fs-2_2
+      text-align: left
+      align-self: start
+
+    // .services__card
+    &__card
+      flex-direction: column
+      gap: unset
+      width: 100%
+      max-width: 350px
+      padding: 3rem
+      border-radius: 10px
+      box-shadow: 5px 20px 50px rgba(74,153,211,0.2)
+      transform-style: preserve-3d
+      background-color: #fff
+      margin-bottom: 7rem
+      &_receive
+        margin-top: 7rem
+
+    @media (min-width: 830px)
+      &__card
+        max-width: 380px
+
+    // .services__img-wrapper
+    &__img-wrapper
+      padding: 0
+      width: max-content
+      margin-bottom: 3rem
+      &.receive-wrapper
+        align-self: flex-start
+      .send-img
+        height: 197px
+        margin-top: -4.5rem
+      .receive-img,
+      .buy-img
+        height: 132px
+
+    // .services__content
+    &__content
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+      margin: 0
+      h4
+        font-size: $fs-1_4
+      p
+        margin-bottom: 3rem
+      a
+        font-size: $fs-0_8
+        margin: 0
+        text-align: left
+
+    // .services__effect
+    &__effect
+      &_blue
+        margin-top: calc(2rem - 150px)
+      &_orange
+        left: 0
+        margin-left: 0
+      &_dots1
+        top: calc(50% - (154px / 2))
+        left: calc(0px - (154px / 1.5))
+      &_dots2
+        top: calc(0px - (154px / 2))
+        right: calc(0px - (154px / 2))
+      &_dots3
+        bottom: calc(0px - (154px / 1.65))
+        right: calc(0px - (154px / 2))
+      @media (min-width: 1200px)
+        &_dots1,
+        &_dots2,
+        &_dots3
+          display: block
+          position: absolute
+          transform: translateZ(-10px)
+
+  .left-column
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    align-items: center
+
+  .learn-link:hover,
+  .learn-link:focus
+    transform: scale(1.1) translateX(0.5rem)
+  .learn-link:hover .fa-arrow-right,
+  .learn-link:focus .fa-arrow-right
+    transform: translateX(1rem) scale(0)
